@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1590527644117121298}
   - component: {fileID: 7114014618672781522}
   - component: {fileID: 2759497056045152256}
+  - component: {fileID: 520286975126817821}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -149,6 +150,8 @@ MonoBehaviour:
     m_Flags: 0
   walkSpeed: 2
   turnSpeed: 10
+  boostMultiplyer: 2
+  boostKey: 51
 --- !u!95 &2759497056045152256
 Animator:
   serializedVersion: 7
@@ -171,6 +174,14 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!81 &520286975126817821
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5597006614526196500}
+  m_Enabled: 1
 --- !u!1001 &1491952264438770268
 PrefabInstance:
   m_ObjectHideFlags: 0

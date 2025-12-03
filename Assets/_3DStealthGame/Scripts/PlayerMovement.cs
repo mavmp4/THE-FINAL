@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed = 1.0f;
     public float turnSpeed = 20f;
 
+    public float boostMultiplyer = 2f;
+    public Key boostKey = Key.LeftShift;
+
     Rigidbody m_Rigidbody;
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
@@ -28,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         
         float horizontal = pos.x;
         float vertical = pos.y;
+        float currentSpeed = walkSpeed;
         
         m_Movement.Set(horizontal, 0f, vertical);
         m_Movement.Normalize ();
@@ -40,6 +44,12 @@ public class PlayerMovement : MonoBehaviour
         m_Rotation = Quaternion.LookRotation (desiredForward);
         
         m_Rigidbody.MoveRotation (m_Rotation);
-        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * walkSpeed * Time.deltaTime);
+
+        if (Keyboard.current[boostKey].isPressed)
+        {
+            currentSpeed *= boostMultiplyer;
+        }
+
+        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * currentSpeed * Time.deltaTime);
     }
 }
