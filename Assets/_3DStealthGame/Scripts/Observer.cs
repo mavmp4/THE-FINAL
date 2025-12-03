@@ -13,12 +13,20 @@ public class Observer : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             m_IsPlayerInRange = true;
+		}
+	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            m_IsPlayerInRange = true;
+		
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-
         if (other.CompareTag("Player"))        
         {
             m_IsPlayerInRange = false;
@@ -37,11 +45,8 @@ public class Observer : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-
             if (hit.collider.CompareTag("Player"))
             {
-                Debug.Log(">>> Player was caught!");
-
                 if (gameEnding != null)
                     gameEnding.CaughtPlayer();
             }
